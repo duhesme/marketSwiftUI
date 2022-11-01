@@ -11,7 +11,10 @@ struct CatalogView: View {
     var body: some View {
         List {
             CategoryView()
+            SearchBarView()
+            HeaderView(title: "Hot Sales")
             BannerView()
+            HeaderView(title: "Best Seller")
             ProductView()
         }
     }

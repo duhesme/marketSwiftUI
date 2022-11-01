@@ -11,7 +11,7 @@ struct CategoryView: View {
     @State private var categories = ["1", "2", "3"]
     
     var body: some View {
-        ScrollView(.horizontal) {
+        ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack {
                 ForEach(0..<categories.count, id: \.self) { index in
                     CategoryItemView()

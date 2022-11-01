@@ -11,11 +11,12 @@ struct BannerView: View {
     @State private var banners = ["1", "2", "3"]
     
     var body: some View {
-        ScrollView(.horizontal) {
-            LazyHGrid(rows: [GridItem(.fixed(300))], alignment: .center) {
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHGrid(rows: [GridItem(.fixed(220))], alignment: .center) {
                 ForEach(banners, id: \.self) { item in
                     Color.brown
                         .frame(width: 300)
+                        .cornerRadius(20)
                 }
             }
         }
