@@ -9,7 +9,11 @@ import SwiftUI
 
 struct CatalogView: View {
     var body: some View {
-        CategoryView()
+        List {
+            CategoryView()
+            BannerView()
+            ProductView()
+        }
     }
 }
 
