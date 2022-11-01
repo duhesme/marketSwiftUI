@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ProductItemView: View {
     var body: some View {
-        Color.blue
+        VStack {
+            Color.blue
+            Color.red
+            Color.purple
+        }
     }
 }
 
