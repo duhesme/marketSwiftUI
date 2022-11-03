@@ -22,6 +22,8 @@ struct HeaderView: View {
                     .foregroundColor(.orange)
             }
         }
+        .padding(.leading, 17)
+        .padding(.trailing, 33)
     }
 }
 

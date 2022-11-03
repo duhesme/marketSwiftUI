@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct CategoryView: View {
-    @State private var categories = ["1", "2", "3"]
+    @State private var categories = ["Phone", "Computer", "Health", "Books"]
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack {
                 ForEach(0..<categories.count, id: \.self) { index in
-                    CategoryItemView()
-                        .frame(width: 80, height: 80)
+                    CategoryItemView(icon: Image(categories[index]))
+                        .frame(width: 71, height: 71)
+                        .offset(x: 27)
                 }
             }
         }

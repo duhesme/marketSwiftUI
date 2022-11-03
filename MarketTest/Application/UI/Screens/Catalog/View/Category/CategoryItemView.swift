@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct CategoryItemView: View {
+    let icon: Image
+    
     var body: some View {
-        Color.orange
-            .cornerRadius(40)
+        ZStack {
+            Color(.displayP3, red: 1, green: 1, blue: 1, opacity: 1)
+                .cornerRadius(36)
+            icon
+        }
     }
 }
 
 struct CategoryItemView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryItemView()
+        CategoryItemView(icon: Image("Question"))
     }
 }

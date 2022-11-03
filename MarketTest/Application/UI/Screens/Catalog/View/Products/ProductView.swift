@@ -19,7 +19,6 @@ struct ProductView: View {
         LazyVGrid(columns: columns, spacing: 20) {
             ForEach(0..<categories.count, id: \.self) { index in
                 ProductItemView()
-                    .frame(width: 80, height: 80)
             }
         }
         .padding()
