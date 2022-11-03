@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct CategoryView: View {
-    @State private var categories = ["Phone", "Computer", "Health", "Books"]
+    @Binding var categories: [CategoryModel]
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack {
                 ForEach(0..<categories.count, id: \.self) { index in
-                    CategoryItemView(icon: Image(categories[index]))
-                        .frame(width: 71, height: 71)
+                    CategoryItemView(title: categories[index].title, icon: Image(categories[index].imageString), isSelected: $categories[index].isSelected)
                         .offset(x: 27)
+                        .padding(.trailing, 11)
                 }
             }
         }
@@ -24,7 +24,9 @@ struct CategoryView: View {
 }
 
 struct CategoryView_Previews: PreviewProvider {
+    @State private var categories: [CategoryModel] = []
+    
     static var previews: some View {
-        CategoryView()
+        CategoryView(categories: .constant([]))
     }
 }

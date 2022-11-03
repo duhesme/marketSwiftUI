@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct LocationView: View {
+    let title: String
+    
     var body: some View {
         ZStack {
             HStack {
                 Spacer()
                 Image("location")
-                Text("Location")
+                Text(title)
                 Image("downArrow")
                 Spacer()
             }
@@ -28,6 +30,6 @@ struct LocationView: View {
 
 struct LocationView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationView()
+        LocationView(title: "Location")
     }
 }

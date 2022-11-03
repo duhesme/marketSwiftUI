@@ -38,6 +38,7 @@ struct ProductItemView: View {
                             LikeButton()
                                 .padding(.top, 10)
                                 .padding(.trailing, 12)
+                                .shadow(radius: 13)
                         }
                         Spacer()
                             .frame(height: 120)
