@@ -6,16 +6,14 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct BannerItem: View {
+    var imageURL: URL
+    
     var body: some View {
-        RoundedRectangle(cornerRadius: 12)
-            .foregroundColor(.blue)
-    }
-}
-
-struct BannerItem_Previews: PreviewProvider {
-    static var previews: some View {
-        BannerItem()
+        KFImage(imageURL)
+            .resizable()
+            .cornerRadius(12)
     }
 }

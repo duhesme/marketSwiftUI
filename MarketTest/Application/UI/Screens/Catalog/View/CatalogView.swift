@@ -18,6 +18,9 @@ struct CatalogView: View {
         CategoryModel(id: 3, title: "Books", imageString: "Books", isSelected: false)
     ]
     
+    @State private var hotSales: [HomeStoreItem] = []
+    @State private var bestSellers: [BestSellerItem] = []
+    
     var body: some View {
         ZStack {
             Color(.displayP3, red: 0.898, green: 0.898, blue: 0.898, opacity: 1)
@@ -35,12 +38,10 @@ struct CatalogView: View {
                         .padding(.top, 17)
                     HeaderView(title: "Hot Sales")
                         .padding(.top, 12)
-                    BannerView()
+                    BannerView(hotSales: $hotSales)
                         .padding(.top, 0)
                     HeaderView(title: "Best Seller")
-//                        .padding(.top, 5)
-                    ProductView()
-//                        .padding(.top, 8)
+                    ProductView(bestSellers: $bestSellers)
                 }
             }
         }
@@ -59,8 +60,8 @@ struct CatalogView: View {
                     case .finished: break
                     }
                 }) { storeContent in
-                    let a = storeContent.bestSeller[0].title
-                    print(a)
+                    hotSales = storeContent.homeStore
+                    bestSellers = storeContent.bestSeller
                 }.store(in: &cancellables)
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProductView: View {
-    @State private var categories = ["1", "2", "3", "4"]
+    @Binding var bestSellers: [BestSellerItem]
     
     let columns = [
         GridItem(.flexible()),
@@ -17,16 +17,10 @@ struct ProductView: View {
     
     var body: some View {
         LazyVGrid(columns: columns, spacing: 20) {
-            ForEach(0..<categories.count, id: \.self) { index in
-                ProductItemView()
+            ForEach(0..<bestSellers.count, id: \.self) { index in
+                ProductItemView(imageURL: URL(string: bestSellers[index].picture)!)
             }
         }
         .padding()
-    }
-}
-
-struct ProductView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductView()
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct LikeButton: View {
     var body: some View {
@@ -23,13 +24,15 @@ struct LikeButton: View {
 }
 
 struct ProductItemView: View {
+    let imageURL: URL
+    
     var body: some View {
         ZStack {
             Color(.displayP3, red: 196, green: 196, blue: 196, opacity: 1)
                 .cornerRadius(10)
             VStack {
                 ZStack {
-                    Image("Question")
+                    KFImage(imageURL)
                         .resizable()
                         .frame(height: 168)
                     VStack {
@@ -60,11 +63,5 @@ struct ProductItemView: View {
             .cornerRadius(10)
         }
         
-    }
-}
-
-struct ProductItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductItemView()
     }
 }
