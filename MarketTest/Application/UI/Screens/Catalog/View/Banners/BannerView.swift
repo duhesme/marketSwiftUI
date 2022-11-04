@@ -16,7 +16,7 @@ struct BannerView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: [GridItem(.fixed(220))], alignment: .center) {
                 ForEach(0..<hotSales.count, id: \.self) { index in
-                    BannerItem(imageURL: URL(string: hotSales[index].picture)!)
+                    BannerItem(imageURL: URL(string: hotSales[index].picture)!, isNew: hotSales[index].isNew ?? false, title: hotSales[index].title, subtitle: hotSales[index].subtitle)
                         .frame(width: UIScreen.main.bounds.width - 30, height: 182)
                         .offset(x: 15)
                         .padding(.trailing, 15)
