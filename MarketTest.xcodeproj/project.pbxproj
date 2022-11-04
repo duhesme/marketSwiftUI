@@ -23,6 +23,9 @@
 		849150032913ED20008C8AE9 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849150022913ED20008C8AE9 /* CategoryModel.swift */; };
 		8491500529141D8F008C8AE9 /* HotSalesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491500429141D8F008C8AE9 /* HotSalesModel.swift */; };
 		8491500729141E8C008C8AE9 /* BestSellerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491500629141E8C008C8AE9 /* BestSellerModel.swift */; };
+		8491500C29153FC2008C8AE9 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491500B29153FC2008C8AE9 /* Agent.swift */; };
+		8491500E29153FCA008C8AE9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491500D29153FCA008C8AE9 /* API.swift */; };
+		8491501029153FD7008C8AE9 /* StoreContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491500F29153FD7008C8AE9 /* StoreContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		849150022913ED20008C8AE9 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		8491500429141D8F008C8AE9 /* HotSalesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSalesModel.swift; sourceTree = "<group>"; };
 		8491500629141E8C008C8AE9 /* BestSellerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellerModel.swift; sourceTree = "<group>"; };
+		8491500B29153FC2008C8AE9 /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
+		8491500D29153FCA008C8AE9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		8491500F29153FD7008C8AE9 /* StoreContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +142,7 @@
 		84914FE02910151B008C8AE9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8491500829142169008C8AE9 /* API */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,6 +246,32 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		8491500829142169008C8AE9 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8491500929142173008C8AE9 /* Core */,
+				8491500A2914217A008C8AE9 /* Endpoint */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		8491500929142173008C8AE9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				8491500B29153FC2008C8AE9 /* Agent.swift */,
+				8491500D29153FCA008C8AE9 /* API.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		8491500A2914217A008C8AE9 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				8491500F29153FD7008C8AE9 /* StoreContent.swift */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -311,10 +344,12 @@
 			files = (
 				84914FF429115A2E008C8AE9 /* BannerView.swift in Sources */,
 				849150032913ED20008C8AE9 /* CategoryModel.swift in Sources */,
+				8491501029153FD7008C8AE9 /* StoreContent.swift in Sources */,
 				84914FF829115EF0008C8AE9 /* HeaderView.swift in Sources */,
 				84914FED29101E41008C8AE9 /* ProductView.swift in Sources */,
 				84914FD029100719008C8AE9 /* CatalogView.swift in Sources */,
 				84914FFB29126EB5008C8AE9 /* BannerItem.swift in Sources */,
+				8491500C29153FC2008C8AE9 /* Agent.swift in Sources */,
 				84914FEA29101DCD008C8AE9 /* CategoryItemView.swift in Sources */,
 				849150002912F2FF008C8AE9 /* LocationView.swift in Sources */,
 				8491500529141D8F008C8AE9 /* HotSalesModel.swift in Sources */,
@@ -322,6 +357,7 @@
 				84914FEF29101F8D008C8AE9 /* ProductItemView.swift in Sources */,
 				84914FCE29100719008C8AE9 /* MarketTestApp.swift in Sources */,
 				8491500729141E8C008C8AE9 /* BestSellerModel.swift in Sources */,
+				8491500E29153FCA008C8AE9 /* API.swift in Sources */,
 				84914FE729101C63008C8AE9 /* CategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

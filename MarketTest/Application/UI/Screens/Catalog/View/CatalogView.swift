@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import Combine
 
 struct CatalogView: View {
+    @State private var cancellables = Set<AnyCancellable>()
+    
     @State private var categories: [CategoryModel] = [
         CategoryModel(id: 0, title: "Phones", imageString: "Phone", isSelected: true),
         CategoryModel(id: 1, title: "Computer", imageString: "Computer", isSelected: false),
@@ -41,6 +44,24 @@ struct CatalogView: View {
                 }
             }
         }
+        .task {
+            loadStoreContent()
+        }
+    }
+    
+    private func loadStoreContent() {
+        API.storeContent()
+            .print()
+            .sink(receiveCompletion: { (completion) in
+                    switch completion {
+                    case let .failure(error):
+                        print("Couldn't get store content: \(error)")
+                    case .finished: break
+                    }
+                }) { storeContent in
+                    let a = storeContent.bestSeller[0].title
+                    print(a)
+                }.store(in: &cancellables)
     }
 }
 
