@@ -27,6 +27,9 @@
 		8491500E29153FCA008C8AE9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491500D29153FCA008C8AE9 /* API.swift */; };
 		8491501029153FD7008C8AE9 /* StoreContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491500F29153FD7008C8AE9 /* StoreContent.swift */; };
 		849150132915487F008C8AE9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 849150122915487F008C8AE9 /* Kingfisher */; };
+		84915020291950DE008C8AE9 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8491501F291950DE008C8AE9 /* Colors.xcassets */; };
+		8491502229195450008C8AE9 /* TabBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491502129195450008C8AE9 /* TabBarIcon.swift */; };
+		849150252919602C008C8AE9 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849150242919602C008C8AE9 /* UIScreen+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		8491500B29153FC2008C8AE9 /* Agent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 		8491500D29153FCA008C8AE9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		8491500F29153FD7008C8AE9 /* StoreContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreContent.swift; sourceTree = "<group>"; };
+		8491501F291950DE008C8AE9 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		8491502129195450008C8AE9 /* TabBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarIcon.swift; sourceTree = "<group>"; };
+		849150242919602C008C8AE9 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,8 @@
 		84914FDC29101202008C8AE9 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				8491502329196018008C8AE9 /* UIKit */,
+				8491501E291930B5008C8AE9 /* SwiftUI */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -127,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				84914FD12910071B008C8AE9 /* Assets.xcassets */,
+				8491501F291950DE008C8AE9 /* Colors.xcassets */,
 				84914FD32910071B008C8AE9 /* Preview Content */,
 			);
 			path = Resources;
@@ -153,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				84914FCD29100719008C8AE9 /* MarketTestApp.swift */,
+				8491502129195450008C8AE9 /* TabBarIcon.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -274,6 +284,21 @@
 			path = Endpoint;
 			sourceTree = "<group>";
 		};
+		8491501E291930B5008C8AE9 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		8491502329196018008C8AE9 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				849150242919602C008C8AE9 /* UIScreen+Extensions.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -338,6 +363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84915020291950DE008C8AE9 /* Colors.xcassets in Resources */,
 				84914FD52910071B008C8AE9 /* Preview Assets.xcassets in Resources */,
 				84914FD22910071B008C8AE9 /* Assets.xcassets in Resources */,
 			);
@@ -362,7 +388,9 @@
 				849150002912F2FF008C8AE9 /* LocationView.swift in Sources */,
 				8491500529141D8F008C8AE9 /* HotSalesModel.swift in Sources */,
 				84914FF629115CD1008C8AE9 /* SearchBarView.swift in Sources */,
+				8491502229195450008C8AE9 /* TabBarIcon.swift in Sources */,
 				84914FEF29101F8D008C8AE9 /* ProductItemView.swift in Sources */,
+				849150252919602C008C8AE9 /* UIScreen+Extensions.swift in Sources */,
 				84914FCE29100719008C8AE9 /* MarketTestApp.swift in Sources */,
 				8491500729141E8C008C8AE9 /* BestSellerModel.swift in Sources */,
 				8491500E29153FCA008C8AE9 /* API.swift in Sources */,
