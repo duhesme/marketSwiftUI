@@ -28,6 +28,7 @@ struct CatalogView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
                     LocationView(title: "Location")
+                        .padding(.top, 60)
                     HeaderView(title: "Select Category")
                         .padding(.top, 4)
                     CategoryView(categories: $categories)
@@ -47,6 +48,7 @@ struct CatalogView: View {
                         .padding(.top, -20)
                 }
             }
+            .padding(.bottom, 72)
         }
         .task {
             loadStoreContent()
