@@ -18,7 +18,7 @@ struct ProductView: View {
     var body: some View {
         LazyVGrid(columns: columns, spacing: 20) {
             ForEach(0..<bestSellers.count, id: \.self) { index in
-                ProductItemView(imageURL: URL(string: bestSellers[index].picture)!)
+                ProductItemView(imageURL: URL(string: bestSellers[index].picture)!, isFavourite: $bestSellers[index].isFavorites)
             }
         }
         .padding()

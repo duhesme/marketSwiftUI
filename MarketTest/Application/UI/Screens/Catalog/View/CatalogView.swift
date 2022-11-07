@@ -29,19 +29,22 @@ struct CatalogView: View {
                 VStack {
                     LocationView(title: "Location")
                     HeaderView(title: "Select Category")
-                        .padding(.top, 9)
+                        .padding(.top, 4)
                     CategoryView(categories: $categories)
-                        .padding(.top, 12)
+                        .padding(.top, 4)
                     SearchBarView()
+                        .frame(height: 34)
+                        .padding(.top, 35)
                         .padding(.leading, 32)
                         .padding(.trailing, 37)
-                        .padding(.top, 17)
                     HeaderView(title: "Hot Sales")
                         .padding(.top, 12)
                     BannerView(hotSales: $hotSales)
-                        .padding(.top, 0)
+                        .padding(.top, -30)
                     HeaderView(title: "Best Seller")
+                        .padding(.top, -15)
                     ProductView(bestSellers: $bestSellers)
+                        .padding(.top, -20)
                 }
             }
         }
