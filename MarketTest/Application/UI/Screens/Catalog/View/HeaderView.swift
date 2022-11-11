@@ -13,7 +13,7 @@ struct HeaderView: View {
     var body: some View {
         HStack {
             Text(title)
-                .font(.system(size: 28))
+                .font(Font.custom("", size: 29))
             Spacer()
             Button {
                 

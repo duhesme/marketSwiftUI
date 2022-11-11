@@ -46,9 +46,9 @@ struct CatalogView: View {
                         .padding(.top, -15)
                     ProductView(bestSellers: $bestSellers)
                         .padding(.top, -20)
+                        .padding(.bottom, 72)
                 }
             }
-            .padding(.bottom, 72)
         }
         .task {
             loadStoreContent()
