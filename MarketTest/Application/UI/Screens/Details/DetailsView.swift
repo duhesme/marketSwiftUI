@@ -9,8 +9,10 @@ import SwiftUI
 
 struct DetailsView: View {
     var body: some View {
-        
-        ProductDetailsView()
+        VStack {
+            Carousel(elementSize: CGSize(width: 266, height: 335))
+            ProductDetailsView()
+        }
     }
 }
 

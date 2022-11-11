@@ -28,6 +28,8 @@ class Store: ObservableObject {
 }
 
 struct Carousel: View {
+    let elementSize: CGSize
+    
     @StateObject var store = Store()
     @State private var snappedItem = 0.0
     @State private var draggingItem = 0.0
@@ -43,7 +45,7 @@ struct Carousel: View {
                     Text(item.title)
                         .padding()
                 }
-                .frame(width: 200, height: 200)
+                .frame(width: elementSize.width, height: elementSize.height)
                 
                 .scaleEffect(1.0 - abs(distance(item.id)) * 0.2 )
                 .opacity(1.0 - abs(distance(item.id)) * 0.3 )
@@ -78,6 +80,6 @@ struct Carousel: View {
 
 struct Carousel_Previews: PreviewProvider {
     static var previews: some View {
-        Carousel()
+        Carousel(elementSize: CGSize(width: 266, height: 335))
     }
 }
