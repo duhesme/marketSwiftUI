@@ -17,6 +17,13 @@ struct DetailsHeader: View {
             }
             .frame(width: 37, height: 37)
             Text("Title")
+                .font(FontFamily.MarkPro.medium.swiftUIFont(size: 18))
+            Button {
+                
+            } label: {
+                Color("TabBarBackground")
+            }
+            .frame(width: 37, height: 37)
         }
     }
 }

@@ -9,9 +9,18 @@ import SwiftUI
 
 struct DetailsView: View {
     var body: some View {
-        VStack {
-            Carousel(elementSize: CGSize(width: 266, height: 335))
-            ProductDetailsView()
+        ZStack {
+            Asset.Colors.background.swiftUIColor
+                .ignoresSafeArea()
+            VStack {
+                NavigationHeader(title: "Product Details", forwardIcon: Asset.Assets.Details.bag.swiftUIImage)
+                    .padding(.leading, 35)
+                    .padding(.trailing, 35)
+                Carousel(elementSize: CGSize(width: 266, height: 335))
+                Spacer()
+                ProductDetailsView()
+                    .ignoresSafeArea()
+            }
         }
     }
 }

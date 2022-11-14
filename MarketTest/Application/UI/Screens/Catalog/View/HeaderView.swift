@@ -13,7 +13,7 @@ struct HeaderView: View {
     var body: some View {
         HStack {
             Text(title)
-                .font(Font.custom("", size: 29))
+                .font(FontFamily.MarkPro.bold.swiftUIFont(size: 25))
             Spacer()
             Button {
                 
