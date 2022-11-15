@@ -26,6 +26,8 @@ struct NavigationHeader: View {
             .cornerRadius(10)
             Spacer()
             Text(title)
+                .font(FontFamily.MarkPro.medium.swiftUIFont(size: 18))
+                .foregroundColor(Asset.Colors.deepBlue.swiftUIColor)
             Spacer()
             Button {
                 

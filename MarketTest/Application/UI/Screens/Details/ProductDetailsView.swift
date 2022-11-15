@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum DetailsInfoType {
+enum DetailsInfoType: String, CaseIterable {
     case shop
     case details
     case features
@@ -45,6 +45,7 @@ struct ProductDetailsView: View {
             .padding(.trailing, 38)
         }
         .cornerRadius(30, corners: [.topLeft, .topRight])
+        .ignoresSafeArea()
     }
 }
 
@@ -54,6 +55,7 @@ struct ProductDetailsHeaderInfo: View {
         HStack {
             Text("Title")
                 .font(FontFamily.MarkPro.medium.swiftUIFont(size: 18))
+                .foregroundColor(Asset.Colors.deepBlue.swiftUIColor)
             Spacer()
             ZStack {
                 Asset.Colors.deepBlue.swiftUIColor
@@ -78,12 +80,37 @@ struct ProductDetailsInfoPicker: View {
     @Binding var selectedInfoType: DetailsInfoType
     
     var body: some View {
-        Picker("", selection: $selectedInfoType) {
-            Text("Shop")
-            Text("Details")
-            Text("Features")
+        HStack() {
+            ForEach(DetailsInfoType.allCases, id: \.rawValue) { item in
+                Button {
+                    selectedInfoType = item
+                } label: {
+                    Group {
+                        if item == selectedInfoType {
+                            ZStack {
+                                Text(item.rawValue.capitalized)
+                                    .font(FontFamily.MarkPro.medium.swiftUIFont(size: 20))
+                                    .foregroundColor(Asset.Colors.deepBlue.swiftUIColor)
+                                VStack {
+                                    Spacer()
+                                    Asset.Colors.orange.swiftUIColor
+                                        .frame(height: 2)
+                                }
+                            }
+                        } else {
+                            Text(item.rawValue.capitalized)
+                                .font(FontFamily.MarkPro.regular.swiftUIFont(size: 20))
+                                .foregroundColor(Color(.displayP3, red: 0, green: 0, blue: 0, opacity: 0.5))
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 30)
+                }
+                if item != DetailsInfoType.allCases.last {
+                    Spacer()
+                }
+            }
         }
-        .pickerStyle(.segmented)
     }
 }
 
