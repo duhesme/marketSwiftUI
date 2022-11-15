@@ -16,7 +16,7 @@ extension API {
     
 }
 
-struct ProductDetails {
+struct ProductDetails: Decodable {
     let id: String
     let title: String
     let cpu: String
@@ -31,6 +31,7 @@ struct ProductDetails {
     let memory: String
     
     private enum CodingKeys: String, CodingKey {
+        case id, title, camera, capacity, color, images, isFavorites, price, rating
         case cpu = "CPU"
         case ram = "sd"
         case memory = "ssd"
