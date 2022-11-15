@@ -11,19 +11,24 @@ import Combine
 struct DetailsView: View {
     @State private var cancellables = Set<AnyCancellable>()
     
+    @State private var productDetails: ProductDetails?
+    
     var body: some View {
         ZStack {
             Asset.Colors.background.swiftUIColor
                 .ignoresSafeArea()
-            VStack {
-                NavigationHeader(title: "Product Details", forwardIcon: Asset.Assets.Details.bag.swiftUIImage)
-                    .padding(.leading, 35)
-                    .padding(.trailing, 35)
-                Carousel(elementSize: CGSize(width: 266, height: 335))
-                Spacer()
-                ProductDetailsView()
-                    .ignoresSafeArea()
+            if productDetails != nil {
+                VStack {
+                    NavigationHeader(title: "Product Details", forwardIcon: Asset.Assets.Details.bag.swiftUIImage)
+                        .padding(.leading, 35)
+                        .padding(.trailing, 35)
+                    Carousel(elementSize: CGSize(width: 266, height: 335), store: Store(imageURLs: productDetails!.images))
+                    Spacer()
+                    ProductDetailsView()
+                        .ignoresSafeArea()
+                }
             }
+            
         }
         .task {
             loadProductDetails()
@@ -40,7 +45,7 @@ struct DetailsView: View {
                     case .finished: break
                     }
                 }) { productDetails in
-                    print("Product details: \(productDetails)")
+                    self.productDetails = productDetails
                 }.store(in: &cancellables)
     }
 }

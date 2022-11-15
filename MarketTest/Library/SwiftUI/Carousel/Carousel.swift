@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct Item: Identifiable {
     var id: Int
     var title: String
     var color: Color
+    var imageURL: URL
 }
 
 class Store: ObservableObject {
@@ -18,10 +20,10 @@ class Store: ObservableObject {
     
     let colors: [Color] = [.red, .orange, .blue, .teal, .mint, .green, .gray, .indigo, .black]
     
-    init() {
+    init(imageURLs: [String]) {
         items = []
-        for i in 0...7 {
-            let new = Item(id: i, title: "Item \(i)", color: colors[i])
+        for i in 0..<imageURLs.count {
+            let new = Item(id: i, title: "Item \(i)", color: colors[i], imageURL: URL(string: imageURLs[i])!)
             items.append(new)
         }
     }
@@ -30,7 +32,7 @@ class Store: ObservableObject {
 struct Carousel: View {
     let elementSize: CGSize
     
-    @StateObject var store = Store()
+    @StateObject var store: Store
     @State private var snappedItem = 0.0
     @State private var draggingItem = 0.0
     
@@ -40,10 +42,10 @@ struct Carousel: View {
             ForEach(store.items) { item in
                 
                 ZStack {
-                    RoundedRectangle(cornerRadius: 18)
-                        .fill(item.color)
-                    Text(item.title)
-                        .padding()
+                    KFImage(item.imageURL)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .cornerRadius(20)
                 }
                 .frame(width: elementSize.width, height: elementSize.height)
                 
@@ -80,6 +82,6 @@ struct Carousel: View {
 
 struct Carousel_Previews: PreviewProvider {
     static var previews: some View {
-        Carousel(elementSize: CGSize(width: 266, height: 335))
+        Carousel(elementSize: CGSize(width: 266, height: 335), store: Store(imageURLs: []))
     }
 }
