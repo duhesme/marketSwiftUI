@@ -58,6 +58,7 @@
 		84A40CC029226D4600D429D7 /* Fonts+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A40CBF29226D4600D429D7 /* Fonts+Generated.swift */; };
 		84A40CC32922701D00D429D7 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A40CC22922701D00D429D7 /* View+Extensions.swift */; };
 		84A40CC8292285E800D429D7 /* DetailsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A40CC7292285E800D429D7 /* DetailsHeader.swift */; };
+		84A40CCA2923D8E700D429D7 /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A40CC92923D8E700D429D7 /* ProductDetails.swift */; };
 		B80734DC8F8D4AC221ABD427 /* Pods_MarketTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A314AB2D6D924EE175EAFF1 /* Pods_MarketTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +117,7 @@
 		84A40CBF29226D4600D429D7 /* Fonts+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fonts+Generated.swift"; sourceTree = "<group>"; };
 		84A40CC22922701D00D429D7 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		84A40CC7292285E800D429D7 /* DetailsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsHeader.swift; sourceTree = "<group>"; };
+		84A40CC92923D8E700D429D7 /* ProductDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
 		9B1C01240B4F89809A065CD3 /* Pods-MarketTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTest.release.xcconfig"; path = "Target Support Files/Pods-MarketTest/Pods-MarketTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -361,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				8491500F29153FD7008C8AE9 /* StoreContent.swift */,
+				84A40CC92923D8E700D429D7 /* ProductDetails.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -651,6 +654,7 @@
 				8491502229195450008C8AE9 /* TabBarIcon.swift in Sources */,
 				84914FEF29101F8D008C8AE9 /* ProductItemView.swift in Sources */,
 				849150252919602C008C8AE9 /* UIScreen+Extensions.swift in Sources */,
+				84A40CCA2923D8E700D429D7 /* ProductDetails.swift in Sources */,
 				84915045291A7783008C8AE9 /* ViewRouter.swift in Sources */,
 				8491504C291BF1F6008C8AE9 /* DetailsView.swift in Sources */,
 				84914FCE29100719008C8AE9 /* MarketTestApp.swift in Sources */,
