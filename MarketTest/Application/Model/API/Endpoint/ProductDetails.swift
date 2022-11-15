@@ -10,8 +10,12 @@ import Combine
 
 extension API {
     
-    static func productDetails(forId id: Int) {
+    static func productDetails(forId id: Int) -> AnyPublisher<ProductDetails, Error> {
+        let request = URLRequest(url: base.appendingPathComponent("v3/6c14c560-15c6-4248-b9d2-b4508df7d4f5"))
         
+        return agent.run(request)
+            .map(\.value)
+            .eraseToAnyPublisher()
     }
     
 }
