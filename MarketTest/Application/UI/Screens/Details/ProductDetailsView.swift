@@ -19,6 +19,8 @@ struct Spec {
 }
 
 struct ProductDetailsView: View {
+    let productDetails: ProductDetails
+    
     @State private var selectedInfoType: DetailsInfoType = .shop
     
     let specs = [
@@ -32,7 +34,7 @@ struct ProductDetailsView: View {
         ZStack {
             Color.white
             VStack {
-                ProductDetailsHeaderInfo()
+                ProductDetailsHeaderInfo(title: productDetails.title, isFavourite: productDetails.isFavorites)
                 ProductDetailsRating()
                 ProductDetailsInfoPicker(selectedInfoType: $selectedInfoType)
                 HStack {
@@ -52,7 +54,7 @@ struct ProductDetailsView: View {
                         .foregroundColor(Asset.Colors.deepBlue.swiftUIColor)
                     Spacer()
                 }
-                ProductDetailsBuyButton {
+                ProductDetailsBuyButton(price: productDetails.price) {
                     
                 }
                 .frame(height: 54)
@@ -66,16 +68,22 @@ struct ProductDetailsView: View {
 }
 
 struct ProductDetailsHeaderInfo: View {
+    let title: String
+    let isFavourite: Bool
     
     var body: some View {
         HStack {
-            Text("Title")
+            Text(title)
                 .font(FontFamily.MarkPro.medium.swiftUIFont(size: 18))
                 .foregroundColor(Asset.Colors.deepBlue.swiftUIColor)
             Spacer()
             ZStack {
                 Asset.Colors.deepBlue.swiftUIColor
-                Asset.Assets.Details.transparentHeart.swiftUIImage
+                if isFavourite {
+                    Asset.Assets.Main.Product.selectedHeart.swiftUIImage
+                } else {
+                    Asset.Assets.Details.transparentHeart.swiftUIImage
+                }
             }
             .frame(width: 37, height: 33)
             .cornerRadius(10)
@@ -131,6 +139,8 @@ struct ProductDetailsInfoPicker: View {
 }
 
 struct ProductDetailsBuyButton: View {
+    let price: Double
+    
     let action: () -> Void
     
     var body: some View {
@@ -144,7 +154,7 @@ struct ProductDetailsBuyButton: View {
                         .font(FontFamily.MarkPro.bold.swiftUIFont(size: 16))
                         .foregroundColor(.white)
                     Spacer()
-                    Text("$1500.00")
+                    Text("$\(String(format: "%.2f", price))")
                         .font(FontFamily.MarkPro.bold.swiftUIFont(size: 16))
                         .foregroundColor(.white)
                 }
@@ -158,6 +168,6 @@ struct ProductDetailsBuyButton: View {
 
 struct ProductDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductDetailsView()
+        ProductDetailsView(productDetails: ProductDetails(id: "", title: "", cpu: "", camera: "", capacity: [], color: [], images: [], isFavorites: false, price: 0, rating: 0, ram: "", memory: ""))
     }
 }

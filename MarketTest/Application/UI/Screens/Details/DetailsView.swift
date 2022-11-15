@@ -24,7 +24,7 @@ struct DetailsView: View {
                         .padding(.trailing, 35)
                     Carousel(elementSize: CGSize(width: 266, height: 335), store: Store(imageURLs: productDetails!.images))
                     Spacer()
-                    ProductDetailsView()
+                    ProductDetailsView(productDetails: productDetails!)
                         .ignoresSafeArea()
                 }
             }

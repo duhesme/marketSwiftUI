@@ -29,7 +29,7 @@ struct ProductDetails: Decodable {
     let color: [String]
     let images: [String]
     let isFavorites: Bool
-    let price: Int
+    let price: Double
     let rating: Double
     let ram: String
     let memory: String
