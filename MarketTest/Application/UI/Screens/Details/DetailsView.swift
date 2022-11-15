@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import Combine
 
 struct DetailsView: View {
+    @State private var cancellables = Set<AnyCancellable>()
+    
     var body: some View {
         ZStack {
             Asset.Colors.background.swiftUIColor
@@ -22,6 +25,23 @@ struct DetailsView: View {
                     .ignoresSafeArea()
             }
         }
+        .task {
+            loadProductDetails()
+        }
+    }
+    
+    private func loadProductDetails() {
+        API.productDetails(forId: 3)
+            .print()
+            .sink(receiveCompletion: { (completion) in
+                    switch completion {
+                    case let .failure(error):
+                        print("Couldn't get store content: \(error)")
+                    case .finished: break
+                    }
+                }) { productDetails in
+                    print("Product details: \(productDetails)")
+                }.store(in: &cancellables)
     }
 }
 
