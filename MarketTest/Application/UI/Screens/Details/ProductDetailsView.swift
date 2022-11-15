@@ -13,8 +13,20 @@ enum DetailsInfoType: String, CaseIterable {
     case features
 }
 
+struct Spec {
+    let title: String
+    let image: Image
+}
+
 struct ProductDetailsView: View {
     @State private var selectedInfoType: DetailsInfoType = .shop
+    
+    let specs = [
+        Spec(title: "Exynos 990", image: Asset.Assets.Details.Specs.processor.swiftUIImage),
+        Spec(title: "108 + 12 mp", image: Asset.Assets.Details.Specs.camera.swiftUIImage),
+        Spec(title: "8 GB", image: Asset.Assets.Details.Specs.ram.swiftUIImage),
+        Spec(title: "256 GB", image: Asset.Assets.Details.Specs.memory.swiftUIImage)
+    ]
     
     var body: some View {
         ZStack {
@@ -24,10 +36,14 @@ struct ProductDetailsView: View {
                 ProductDetailsRating()
                 ProductDetailsInfoPicker(selectedInfoType: $selectedInfoType)
                 HStack {
-                    ForEach(0..<4) { _ in
-                        Color.red
-                            .frame(width: 60, height: 47)
-                            .cornerRadius(12)
+                    ForEach(0..<specs.count, id: \.self) { index in
+                        VStack {
+                            specs[index].image
+                            Text(specs[index].title)
+                                .font(FontFamily.MarkPro.regular.swiftUIFont(size: 11))
+                                .foregroundColor(Asset.Colors.Text.lightGray.swiftUIColor)
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: 47)
                     }
                 }
                 HStack {
@@ -80,7 +96,7 @@ struct ProductDetailsInfoPicker: View {
     @Binding var selectedInfoType: DetailsInfoType
     
     var body: some View {
-        HStack() {
+        HStack {
             ForEach(DetailsInfoType.allCases, id: \.rawValue) { item in
                 Button {
                     selectedInfoType = item
