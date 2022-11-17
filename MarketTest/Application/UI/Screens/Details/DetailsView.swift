@@ -24,7 +24,7 @@ struct DetailsView: View {
                         .padding(.trailing, 35)
                     Carousel(elementSize: CGSize(width: 266, height: 335), store: Store(imageURLs: productDetails!.images))
                     Spacer()
-                    ProductDetailsView(productDetails: productDetails!)
+                    ProductDetailsView(productDetails: productDetails!, selectedCapacity: productDetails!.capacity[0], selectedColor: Color(hex: productDetails!.color[0]))
                         .ignoresSafeArea()
                 }
             }

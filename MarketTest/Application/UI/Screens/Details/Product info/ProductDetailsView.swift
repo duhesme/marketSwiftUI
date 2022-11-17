@@ -23,6 +23,9 @@ struct ProductDetailsView: View {
     
     @State private var selectedInfoType: DetailsInfoType = .shop
     
+    @State var selectedCapacity: String
+    @State var selectedColor: Color
+    
     let specs = [
         Spec(title: "Exynos 990", image: Asset.Assets.Details.Specs.processor.swiftUIImage),
         Spec(title: "108 + 12 mp", image: Asset.Assets.Details.Specs.camera.swiftUIImage),
@@ -33,10 +36,12 @@ struct ProductDetailsView: View {
     var body: some View {
         ZStack {
             Color.white
-            VStack {
+            VStack() {
                 ProductDetailsHeaderInfo(title: productDetails.title, isFavourite: productDetails.isFavorites)
                 ProductDetailsRating()
+                    .padding(.top, -10)
                 ProductDetailsInfoPicker(selectedInfoType: $selectedInfoType)
+                    .padding(.top, 12)
                 HStack {
                     ForEach(0..<specs.count, id: \.self) { index in
                         VStack {
@@ -48,16 +53,24 @@ struct ProductDetailsView: View {
                         .frame(maxWidth: .infinity, maxHeight: 47)
                     }
                 }
+                .padding(.top, 12)
                 HStack {
                     Text("Select color and capacity")
                         .font(FontFamily.MarkPro.bold.swiftUIFont(size: 14))
                         .foregroundColor(Asset.Colors.deepBlue.swiftUIColor)
                     Spacer()
                 }
+                .padding(.top, 12)
+                HStack {
+                    ColorPicker(colors: productDetails.color.map { Color(hex: $0) }, selectedColor: $selectedColor)
+                    Spacer()
+                    StoragePicker(storage: productDetails.capacity, selectedStorage: $selectedCapacity)
+                }
                 ProductDetailsBuyButton(price: productDetails.price) {
                     
                 }
                 .frame(height: 54)
+                .padding(.top, 12)
             }
             .padding(.leading, 38)
             .padding(.trailing, 38)
@@ -163,11 +176,5 @@ struct ProductDetailsBuyButton: View {
             }
         }
         .cornerRadius(10)
-    }
-}
-
-struct ProductDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductDetailsView(productDetails: ProductDetails(id: "", title: "", cpu: "", camera: "", capacity: [], color: [], images: [], isFavorites: false, price: 0, rating: 0, ram: "", memory: ""))
     }
 }

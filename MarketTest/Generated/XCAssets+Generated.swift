@@ -29,6 +29,7 @@ internal enum Asset {
     internal enum Details {
       internal enum Specs {
         internal static let camera = ImageAsset(name: "Camera")
+        internal static let check = ImageAsset(name: "Check")
         internal static let memory = ImageAsset(name: "Memory")
         internal static let processor = ImageAsset(name: "Processor")
         internal static let ram = ImageAsset(name: "RAM")
@@ -71,6 +72,7 @@ internal enum Asset {
     internal static let deepBlue = ColorAsset(name: "DeepBlue")
     internal static let orange = ColorAsset(name: "Orange")
     internal enum Text {
+      internal static let gray = ColorAsset(name: "Gray")
       internal static let lightGray = ColorAsset(name: "Light-gray")
     }
   }
